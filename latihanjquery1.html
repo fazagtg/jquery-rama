@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Latihan Jquery Pertama</title>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+  <p id="paragraf">ini adalah paragraf pertama</p>
+  <p id="paragraf2">ini adalah paragraf kedua</p>
+
+  <button id="tombol">Sembunyikan Paragraf</button>
+  <button id="tombol2">Tampilkan paragraf</button>
+  <button id="tombol3">#1</button>
+  <button id="tombol4">#2</button>
+  <button id="tukar">Tukar Paragraf</button>
+
+  <script>
+    $(document).ready(function() {
+      $("#tombol").click(function() {
+        $("#paragraf").fadeOut("slow");
+        $("#paragraf2").fadeOut("slow");
+      });
+
+      $("#tombol2").click(function() {
+        $("#paragraf").fadeIn("slow");
+        $("#paragraf2").fadeIn("slow");
+      });
+
+      $("#tombol3").click(function() {
+        $("#paragraf").fadeIn("slow");
+        $("#paragraf2").fadeOut("slow");
+      });
+ 
+      $("#tombol4").click(function() {
+        $("#paragraf2").fadeIn("slow");
+        $("#paragraf").fadeOut("slow");
+      });
+
+
+      $("#tukar").click(function() {
+        let p1 = $("#paragraf");
+        let p2 = $("#paragraf2");
+     if (p1.next()[0] === p2[0] ) {
+        p2.insertBefore(p1);
+     }
+     else {
+        p1.insertBefore(p2);
+     }
+      });
+    });
+  </script>
+</body>
+</html>
